@@ -1,0 +1,20 @@
+{
+    "Suppliers" : [
+        {
+            "SupplierID": 1,
+            "SupplierName": "Apple Inc."
+        },
+        {
+            "SupplierID": 2,
+            "SupplierName": "Samsung Group"
+        },
+        {
+            "SupplierID": 3,
+            "SupplierName": "Sony Corp."
+        },
+        {
+            "SupplierID": 4,
+            "SupplierName": "Microsoft Corp." 
+        }
+    ]
+}

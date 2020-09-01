@@ -1,0 +1,24 @@
+{
+    "Categories" : [
+        {
+            "CategoryID": 1,
+            "CategoryName": "DesktopPc"
+        },
+        {
+            "CategoryID": 2,
+            "CategoryName": "LaptopPc"
+        },
+        {
+            "CategoryID": 3,
+            "CategoryName": "Smartphone"
+        },
+        {
+            "CategoryID": 4,
+            "CategoryName": "Television"
+        },
+        {
+            "CategoryID": 5,
+            "CategoryName": "Accessoires" 
+        }
+    ]
+}

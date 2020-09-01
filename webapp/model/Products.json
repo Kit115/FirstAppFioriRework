@@ -1,0 +1,139 @@
+{
+    "Products" : [
+        {
+            "ProductID": 1,
+            "ProductName": "iPhone",
+            "Category": "Phone",
+            "Price": 799.99,
+            "Supplier": "Apple inc." ,
+            "InStock": true,
+            "Discontinued": false,
+            "SalesFigures" : {
+                "2019Q3": {
+                    "Sales": 15000,
+                    "PercentageLeased": 5
+                },
+                "2019Q4": {
+                    "Sales": 20000,
+                    "PercentageLeased": 7
+                },
+                "2020Q1": {
+                    "Sales": 18000,
+                    "PercentageLeased": 8
+                },
+                "2020Q2": {
+                    "Sales": 21000,
+                    "PercentageLeased": 6
+                }
+            }
+        },
+        {
+            "ProductID": 2,
+            "ProductName": "GalaxyS20",
+            "Category": "Phone",
+            "Price": 759.99,
+            "Supplier": "Samsung" ,
+            "InStock": true,
+            "Discontinued": false,
+            "SalesFigures" : {
+                "2019Q3": {
+                    "Sales": 8200,
+                    "PercentageLeased": 12
+                },
+                "2019Q4": {
+                    "Sales": 10050,
+                    "PercentageLeased": 7
+                },
+                "2020Q1": {
+                    "Sales": 9450,
+                    "PercentageLeased": 7
+                },
+                "2020Q2": {
+                    "Sales": 11000,
+                    "PercentageLeased": 11
+                }
+            }
+        },
+        {
+            "ProductID": 3,
+            "ProductName": "MacBook Pro",
+            "Category": "LaptopPc",
+            "Price": 1499.99,
+            "Supplier": "Apple inc." ,
+            "InStock": true,
+            "Discontinued": false,
+            "SalesFigures" : {
+                "2019Q3": {
+                    "Sales": 1400,
+                    "PercentageLeased": 14
+                },
+                "2019Q4": {
+                    "Sales": 900,
+                    "PercentageLeased": 12
+                },
+                "2020Q1": {
+                    "Sales": 1200,
+                    "PercentageLeased": 17
+                },
+                "2020Q2": {
+                    "Sales": 1300,
+                    "PercentageLeased": 21
+                }
+            }
+        },
+        {
+            "ProductID": 4,
+            "ProductName": "BraviaS2",
+            "Category": "Television",
+            "Price": 4999.99,
+            "Supplier": "Sony" ,
+            "InStock": false,
+            "Discontinued": true,
+            "SalesFigures" : {
+                "2019Q3": {
+                    "Sales": 3,
+                    "PercentageLeased": 66.6
+                },
+                "2019Q4": {
+                    "Sales": 0,
+                    "PercentageLeased": 0
+                },
+                "2020Q1": {
+                    "Sales": 0,
+                    "PercentageLeased": 0
+                },
+                "2020Q2": {
+                    "Sales": 0,
+                    "PercentageLeased": 0
+                }
+            }
+        },
+        {
+            "ProductID": 5,
+            "ProductName": "iMac",
+            "Category": "DesktopPc",
+            "Price": 2899.99,
+            "Supplier": "Apple inc." ,
+            "InStock": true,
+            "Discontinued": false,
+            "SalesFigures" : {
+                "2019Q3": {
+                    "Sales": 650,
+                    "PercentageLeased": 19
+                },
+                "2019Q4": {
+                    "Sales": 790,
+                    "PercentageLeased": 8
+                },
+                "2020Q1": {
+                    "Sales": 800,
+                    "PercentageLeased": 10
+                },
+                "2020Q2": {
+                    "Sales": 430,
+                    "PercentageLeased": 22
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+> 
+    <Dialog
+        id="AddProductDialog" 
+        title="Add Product"
+    > 
+        <content> 
+            <FormattedText htmlText="Name:"/> 
+            <Input value="{/newProduct/ProductName}" valueLiveUpdate="true" placeholder="e.g. Airpods"/>
+
+            <FormattedText htmlText="Price:"/> 
+            <Input value="{/newProduct/Price}" valueLiveUpdate="true" placeholder="e.g. 139.99" type="Number"/> 
+
+            <FormattedText htmlText="Supplier:"/> 
+            <Select
+                id="supplierSelect"
+                enabled="true"
+                editable="true" 
+                selectedKey="{/newProduct/Supplier}"
+                items="{
+                    path: 'supplierModel>/Suppliers'
+                }"
+            > 
+                <items> 
+                    <core:Item text="{supplierModel>SupplierName}" key="{supplierModel>SupplierName}"/>  
+                </items> 
+            </Select> 
+
+
+            <FormattedText htmlText="Category:"/> 
+            <Select
+                id="categorySelect"
+                enabled="true" 
+                editable="true" 
+                selectedKey="{/newProduct/Category}"
+                items="{
+                    path: 'categoryModel>/Categories'
+                }"
+            > 
+                <items> 
+                    <core:Item text="{categoryModel>CategoryName}" key="{categoryModel>CategoryName}"/> 
+                </items> 
+            </Select>
+             
+             <FormattedText htmlText="In Stock:"/> 
+             <CheckBox selected="{/newProduct/InStock}"/> 
+        </content>
+    
+        <beginButton> 
+            <Button text="{i18n>Add}" press=".onAddProduct"/> 
+        </beginButton> 
+        <endButton> 
+            <Button text="{i18n>Cancel}" press=".onCancelDialog"/> 
+        </endButton> 
+    </Dialog> 
+</core:FragmentDefinition> 

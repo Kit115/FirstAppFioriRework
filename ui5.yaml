@@ -1,0 +1,20 @@
+specVersion: '2.1'
+metadata:
+  name: sapui5_copy_folder
+type: application
+framework:
+  name: SAPUI5
+  version: 1.80.0
+  libraries:
+    - name: sap.m
+    - name: sap.f
+    - name: themelib_sap_belize
+server:
+  customMiddleware:
+  - name: ui5-middleware-livereload
+    afterMiddleware: compression
+    configuration:
+      debug: false
+      extraExts: "xml,json,properties"
+      port: 35729
+      watchPath: "webapp"

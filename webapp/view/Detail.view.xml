@@ -1,0 +1,165 @@
+<mvc:View
+    controllerName="sap.ui.demo.fiori2.controller.Detail"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f" 
+    xmlns:form="sap.ui.layout.form"
+    xmlns:chart="sap.suite.ui.microchart"
+    xmlns:mvc="sap.ui.core.mvc" 
+> 
+    <ObjectPageLayout
+        id="ObjectPageLayout" 
+        showTitleInHeaderContent="true" 
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true" 
+        isChildPage="true"
+        upperCaseAnchorBar="false" 
+    > 
+        <headerTitle> 
+            <ObjectPageDynamicHeaderTitle> 
+                <expandedHeading> 
+                    <m:Title text="{productModel>ProductName}" wrapping="true" class="sapUiSmallMarginEnd"/> 
+                </expandedHeading> 
+                <snappedHeading>
+                    <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center"> 
+                        <m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd"> 
+                            <f:Avatar
+                                displaySize="S"
+                                displayShape="Square"
+                                class="sapUiTinyMarginEnd"
+                            /> 
+                        </m:FlexBox> 
+                    </m:FlexBox> 
+                </snappedHeading> 
+                <actions> 
+                    <m:Text text="Editable"/> 
+                    <m:Switch
+                        customTextOn=" "
+                        customTextOff=" "
+                        state="{/productEditable}"
+                    /> 
+                    <m:Button
+                        text="Delete"
+                        press=".onDelete"
+                        type="Transparent" 
+                    /> 
+                    <m:Button
+                        text="Copy"
+                        type="Transparent" 
+                    /> 
+                    <m:Button
+                        icon="sap-icon://action"
+                        type="Transparent" 
+                    /> 
+                </actions> 
+            </ObjectPageDynamicHeaderTitle> 
+        </headerTitle> 
+
+        <headerContent> 
+            <m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch"> 
+                <f:Avatar
+                    displaySize="L"
+                    displayShape="Square" 
+                    class="sapUiTinyMarginEnd"
+                >
+                </f:Avatar>
+                <m:VBox 
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Main Category"/> 
+                    <m:Text text="{productModel>Category}"/> 
+                </m:VBox> 
+                <m:VBox 
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Supplier"/> 
+                    <m:Text text="{productModel>Supplier}"/> 
+                </m:VBox> 
+                <m:VBox 
+                    justifyContent="Center"
+                    class="sapUiSmallMarginEnd"
+                >
+                    <m:Label text="Price"/> 
+                    <m:Text text="{productModel>Price}"/> 
+                </m:VBox>
+
+            </m:FlexBox> 
+        </headerContent> 
+
+        <sections> 
+            <ObjectPageSection title="Product Details"> 
+                <subSections> 
+                    <ObjectPageSubSection> 
+                        <blocks>
+                            <form:SimpleForm
+                                layout="ColumnLayout"
+								labelSpanL="12"
+								labelSpanM="12"
+								emptySpanL="0"
+								emptySpanM="0"
+								columnsL="1"
+								columnsM="1"
+                                editable="true" 
+                            > 
+                                <form:content> 
+                                    <m:Label text="Name"/> 
+                                    <m:Input value="{productModel>ProductName}" valueLiveUpdate="true" enabled="{/productEditable}" fieldWidth="20%"/>  
+                                    
+                                    <m:Label text="Category"/> 
+                                    <m:Input value="{productModel>Category}" valueLiveUpdate="true" enabled="{/productEditable}"/> 
+                                    
+                                    <m:Label text="Supplier"/> 
+                                    <m:Input value="{productModel>Supplier}" valueLiveUpdate="true" enabled="{/productEditable}"/>
+                                    
+                                    <m:Label text="Price"/>
+                                    <m:Input value="{productModel>Price}" valueLiveUpdate="true" enabled="{/productEditable}"/> 
+
+                                    <m:Label text="In Stock"/> 
+                                    <m:CheckBox selected="{productModel>InStock}" enabled="{/productEditable}"/>  
+                                    
+                                    <m:Label text="Discontinued"/> 
+                                    <m:CheckBox selected="{productModel>Discontinued}" enabled="{/productEditable}"/>  
+
+                                </form:content> 
+                            </form:SimpleForm> 
+                        </blocks>
+                    </ObjectPageSubSection> 
+                </subSections> 
+            </ObjectPageSection>
+            
+            <ObjectPageSection title="Analytics">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+                        <m:FlexBox height="30rem" width="80rem">
+                            <m:VBox height="30rem" width="30rem" >  
+                                <chart:InteractiveBarChart id="salesBarChart" labelWidth="25%" selectionChanged=".onBarSelected" displayedBars="4"> 
+                                    <chart:bars> 
+                                        <chart:InteractiveBarChartBar id="2019Q3" label="2019 Q3" value="{productModel>SalesFigures/2019Q3/Sales}"/> 
+                                        <chart:InteractiveBarChartBar id="2019Q4" label="2019 Q4" value="{productModel>SalesFigures/2019Q4/Sales}"/> 
+                                        <chart:InteractiveBarChartBar id="2020Q1" label="2020 Q1" value="{productModel>SalesFigures/2020Q1/Sales}"/> 
+                                        <chart:InteractiveBarChartBar id="2020Q2" label="2020 Q2" value="{productModel>SalesFigures/2020Q2/Sales}"/> 
+                                    </chart:bars> 
+                                </chart:InteractiveBarChart>
+                            </m:VBox> 
+
+                            <m:VBox height="30rem" width="30rem"> 
+                                <chart:InteractiveDonutChart displayedSegments="2" selectionEnabled="false"> 
+                                    <chart:segments> 
+                                        <chart:InteractiveDonutChartSegment id="percentageLeased" label="Leased"/> 
+                                        <chart:InteractiveDonutChartSegment id="percentageBought" label="sold"/> 
+                                    </chart:segments> 
+                                </chart:InteractiveDonutChart> 
+                            </m:VBox>
+                        </m:FlexBox> 
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>  
+          
+        </sections> 
+    </ObjectPageLayout> 
+</mvc:View> 
